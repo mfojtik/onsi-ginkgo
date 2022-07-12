@@ -308,7 +308,7 @@ func Skip(message string, callerSkip ...int) {
 	if len(callerSkip) > 0 {
 		skip = callerSkip[0]
 	}
-	cl := types.NewCodeLocationWithStackTrace(skip + 1)
+	cl := types.NewCodeLocation(skip + 1)
 	global.Failer.Skip(message, cl)
 	panic(types.GinkgoErrors.UncaughtGinkgoPanic(cl))
 }
